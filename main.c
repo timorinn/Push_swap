@@ -6,7 +6,7 @@
 /*   By: bford <bford@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/10 15:23:05 by bford             #+#    #+#             */
-/*   Updated: 2019/10/13 21:22:50 by bford            ###   ########.fr       */
+/*   Updated: 2019/10/14 12:47:16 by bford            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,20 +17,33 @@
 
 void	test(int *a, int *b);
 
-void	ft_make_array(int *a, int *b, int argc, char **argv)
+int		ft_make_array(int *a, int *b, int argc, char **argv)
 {
 	int i;
+	int j;
 
 	i = 1;
 	a[0] = argc - 1;
 	b[0] = 0;
-
 	while (argc-- - 1)
 	{
 		a[i] = ft_atoi(argv[i]);
 		b[i] = 666; // D E L E T!
 		i++;
 	}
+	i = 1;
+	while (i != a[0])
+	{
+		j = i + 1;
+		while (j <= a[0])
+		{
+			if (a[i] == a[j])
+				return (0);
+			j++;
+		}
+		i++;
+	}
+	return (1);
 }
 
 int		ft_check_arg(int argc, char **argv)
@@ -58,12 +71,12 @@ int		main(int argc, char **argv)
 	int		a[argc];
 	int		b[argc];
 
-	if (argc < 2 || !ft_check_arg(argc, argv))
+	if (argc < 2 || !ft_check_arg(argc, argv) ||
+	!ft_make_array(a, b, argc, argv))
 	{
 		ft_putstr("Error\n");
 		return (-1);
 	}
-	ft_make_array(a, b, argc, argv);
 	ft_do_sort(a, b);
 
 	//test(a, b);

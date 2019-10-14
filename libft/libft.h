@@ -6,7 +6,7 @@
 /*   By: bford <bford@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/10 15:28:53 by bford             #+#    #+#             */
-/*   Updated: 2019/10/13 19:17:37 by bford            ###   ########.fr       */
+/*   Updated: 2019/10/14 13:45:38 by bford            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 int		ft_atoi(const char *s);
 size_t	ft_strlen(const char *s);
-void	ft_putstr(char const *s);
+int		ft_putstr(char const *s);
 int		ft_isdigit(int c);
 int		ft_sa(int *a);
 int		ft_sb(int *b);
