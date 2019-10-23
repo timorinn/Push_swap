@@ -6,7 +6,7 @@
 /*   By: bford <bford@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/10 15:28:53 by bford             #+#    #+#             */
-/*   Updated: 2019/10/14 13:45:38 by bford            ###   ########.fr       */
+/*   Updated: 2019/10/23 12:32:48 by bford            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,12 @@ int		ft_is_sort(int *a);
 int		ft_is_sort_se(int *a, int start, int end);
 
 void	ft_print_ab(int *a, int *b); // DELETE
+
+void	ft_do_job(int *a, int *b, int middle, int *all);
+int		ft_little_sort(int *a, int *b);
+int		ft_find_middle(int *a);
+
+int		ft_badsort(int *a, int *b);
+int		ft_normsort(int *a, int *b);
 
 #endif

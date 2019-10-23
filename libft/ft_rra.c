@@ -6,9 +6,11 @@
 /*   By: bford <bford@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/13 17:26:36 by bford             #+#    #+#             */
-/*   Updated: 2019/10/13 17:35:46 by bford            ###   ########.fr       */
+/*   Updated: 2019/10/23 16:18:11 by bford            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int		ft_rra(int *a)
 {
@@ -23,5 +25,6 @@ int		ft_rra(int *a)
 		i--;
 	}
 	a[1] = copy;
+	ft_putstr("rra\n");
 	return (1);
 }

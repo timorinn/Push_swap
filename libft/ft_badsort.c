@@ -1,39 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pa.c                                            :+:      :+:    :+:   */
+/*   ft_badsort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bford <bford@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/13 16:46:13 by bford             #+#    #+#             */
-/*   Updated: 2019/10/23 16:17:50 by bford            ###   ########.fr       */
+/*   Created: 2019/10/22 17:00:23 by bford             #+#    #+#             */
+/*   Updated: 2019/10/23 12:27:35 by bford            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_pa(int *a, int *b)
+int		ft_badsort(int *a, int *b)
 {
-	int		x;
+	int i;
+	int	m_a;
+	int m_b;
+	
+	i = 0;
 
-	if (b[0] < 1)
-		return (0);
-	x = a[0];
-	while (x)
+	while (!ft_is_sort(a) || b[0])
 	{
-		a[x + 1] = a[x];
-		x--;
+		m_a = a[ft_find_middle(a)];
+		m_b = b[ft_find_middle(b)];
+
+		if (ft_little_sort(a, b))
+			i++;
+		if (!ft_is_sort(a) && a[0] > 3)
+			ft_do_job(a, b, m_a, &i);
+		else
+			while (b[0])
+			{
+				ft_pa(a, b);
+				i += ft_little_sort(a, b);
+				i++;
+			}
 	}
-	a[1] = b[1];
-	b[0]--;
-	a[0]++;
-	x = 1;
-	while (x <= b[0])
-	{
-		b[x] = b[x + 1];
-		x++;
-	}
-	b[b[0] + 1] = 666; // D E LE T E !
-	ft_putstr("pa\n");
-	return (1);
+	return (i);
 }

@@ -1,39 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pa.c                                            :+:      :+:    :+:   */
+/*   ft_do_job.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bford <bford@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/13 16:46:13 by bford             #+#    #+#             */
-/*   Updated: 2019/10/23 16:17:50 by bford            ###   ########.fr       */
+/*   Created: 2019/10/20 14:58:36 by bford             #+#    #+#             */
+/*   Updated: 2019/10/20 19:14:26 by bford            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_pa(int *a, int *b)
+void	ft_do_job(int *a, int *b, int middle, int *all)
 {
-	int		x;
+	int i;
 
-	if (b[0] < 1)
-		return (0);
-	x = a[0];
-	while (x)
+	i = a[0] / 2;
+	while (i)
 	{
-		a[x + 1] = a[x];
-		x--;
+		if (a[1] >= middle)
+			ft_ra(a);
+		else
+		{
+			i--;
+			ft_pb(a, b);
+			(*all) += ft_little_sort(a, b);
+		}
+		(*all)++;
 	}
-	a[1] = b[1];
-	b[0]--;
-	a[0]++;
-	x = 1;
-	while (x <= b[0])
-	{
-		b[x] = b[x + 1];
-		x++;
-	}
-	b[b[0] + 1] = 666; // D E LE T E !
-	ft_putstr("pa\n");
-	return (1);
 }
