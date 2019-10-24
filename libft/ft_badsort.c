@@ -6,7 +6,7 @@
 /*   By: bford <bford@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/22 17:00:23 by bford             #+#    #+#             */
-/*   Updated: 2019/10/24 11:49:02 by bford            ###   ########.fr       */
+/*   Updated: 2019/10/24 17:49:33 by bford            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int		ft_badsort(int *a, int *b)
 		else
 			while (b[0])
 			{
-				ft_pa(a, b);
+				ft_pa(a, b, 1);
 				i += ft_little_sort(a, b);
 				i++;
 			}

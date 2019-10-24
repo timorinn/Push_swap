@@ -6,7 +6,7 @@
 /*   By: bford <bford@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/10 15:28:53 by bford             #+#    #+#             */
-/*   Updated: 2019/10/24 17:00:00 by bford            ###   ########.fr       */
+/*   Updated: 2019/10/24 17:48:37 by bford            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,17 @@ long long int	ft_atoll(const char *s);
 size_t			ft_strlen(const char *s);
 int				ft_putstr(char const *s);
 int				ft_isdigit(int c);
-int				ft_sa(int *a);
-int				ft_sb(int *b);
-int				ft_ss(int *a, int *b);
-int				ft_pa(int *a, int *b);
-int				ft_pb(int *a, int *b);
-int				ft_ra(int *a);
-int				ft_rb(int *b);
-int				ft_rr(int *a, int *b);
-int				ft_rra(int *a);
-int				ft_rrb(int *b);
-int				ft_rrr(int *a, int *b);
+int				ft_sa(int *a, int p);
+int				ft_sb(int *b, int p);
+int				ft_ss(int *a, int *b, int p);
+int				ft_pa(int *a, int *b, int p);
+int				ft_pb(int *a, int *b, int p);
+int				ft_ra(int *a, int p);
+int				ft_rb(int *b, int p);
+int				ft_rr(int *a, int *b, int p);
+int				ft_rra(int *a, int p);
+int				ft_rrb(int *b, int p);
+int				ft_rrr(int *a, int *b, int p);
 
 int				ft_do_sort(int *a, int *b);
 int				ft_is_sort(int *a);

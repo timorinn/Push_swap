@@ -6,7 +6,7 @@
 /*   By: bford <bford@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/23 12:29:45 by bford             #+#    #+#             */
-/*   Updated: 2019/10/24 12:11:57 by bford            ###   ########.fr       */
+/*   Updated: 2019/10/24 17:49:23 by bford            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,11 +100,11 @@ void	ft_do_start(int *a, int *b)
 	minmax[1] = ft_max(a);
 	while (a[0] > 2)
 		if (a[1] != minmax[0] && a[1] != minmax[1])
-			ft_pb(a, b);
+			ft_pb(a, b, 1);
 		else
-			ft_ra(a);
+			ft_ra(a, 1);
 	if (a[0] > 1 && a[1] > a[2])
-		ft_sa(a);
+		ft_sa(a, 1);
 }
 
 void	ft_push_element(int *a, int *b)
@@ -120,15 +120,15 @@ void	ft_push_element(int *a, int *b)
 
 	while (r--)
 		if (elem_b > b[0] / 2 + 1)
-			ft_rrb(b);
+			ft_rrb(b, 1);
 		else
-			ft_rb(b);
+			ft_rb(b, 1);
 	while (r2--)
 		if (elem_a > a[0] / 2 + 1)
-			ft_rra(a);
+			ft_rra(a, 1);
 		else
-			ft_ra(a);
-	ft_pa(a, b);
+			ft_ra(a, 1);
+	ft_pa(a, b, 1);
 }
 
 int		ft_normsort(int *a, int *b)
@@ -137,6 +137,6 @@ int		ft_normsort(int *a, int *b)
 	while (b[0])
 		ft_push_element(a, b);
 	while (!ft_is_sort(a))
-		ft_rra(a);
+		ft_rra(a, 1);
 	return (1);
 }

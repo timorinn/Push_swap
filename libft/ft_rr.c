@@ -6,13 +6,13 @@
 /*   By: bford <bford@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/13 17:25:56 by bford             #+#    #+#             */
-/*   Updated: 2019/10/23 16:18:08 by bford            ###   ########.fr       */
+/*   Updated: 2019/10/24 17:46:39 by bford            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_rr(int *a, int *b)
+int		ft_rr(int *a, int *b, int p)
 {
 	int		i;
 	int		copy;
@@ -33,6 +33,7 @@ int		ft_rr(int *a, int *b)
 		i++;
 	}
 	b[b[0]] = copy;
-	ft_putstr("rr\n");
+	if (p)
+		ft_putstr("rr\n");
 	return (1);
 }

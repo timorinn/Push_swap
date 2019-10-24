@@ -6,13 +6,13 @@
 /*   By: bford <bford@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/13 16:51:43 by bford             #+#    #+#             */
-/*   Updated: 2019/10/23 16:18:29 by bford            ###   ########.fr       */
+/*   Updated: 2019/10/24 17:47:52 by bford            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_ss(int *a, int *b)
+int		ft_ss(int *a, int *b, int p)
 {
 	a[1] = a[1] - a[2];
 	a[2] = a[2] + a[1];
@@ -20,6 +20,7 @@ int		ft_ss(int *a, int *b)
 	b[1] = b[1] - b[2];
 	b[2] = b[2] + b[1];
 	b[1] = b[2] - b[1];
-	ft_putstr("ss\n");
+	if (p)
+		ft_putstr("ss\n");
 	return (1);
 }

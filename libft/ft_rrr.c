@@ -6,16 +6,17 @@
 /*   By: bford <bford@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/13 17:36:24 by bford             #+#    #+#             */
-/*   Updated: 2019/10/23 16:18:18 by bford            ###   ########.fr       */
+/*   Updated: 2019/10/24 17:47:21 by bford            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_rrr(int *a, int *b)
+int		ft_rrr(int *a, int *b, int p)
 {
-	ft_rra(a);
-	ft_rra(b);
-	ft_putstr("rrr\n");
+	ft_rra(a, p);
+	ft_rra(b, p);
+	if (p)
+		ft_putstr("rrr\n");
 	return (1);
 }

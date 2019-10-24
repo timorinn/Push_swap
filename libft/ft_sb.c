@@ -6,17 +6,18 @@
 /*   By: bford <bford@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/13 17:05:14 by bford             #+#    #+#             */
-/*   Updated: 2019/10/23 16:18:25 by bford            ###   ########.fr       */
+/*   Updated: 2019/10/24 17:47:42 by bford            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_sb(int *b)
+int		ft_sb(int *b, int p)
 {
 	b[1] = b[1] - b[2];
 	b[2] = b[2] + b[1];
 	b[1] = b[2] - b[1];
-	ft_putstr("sb\n");
+	if (p)
+		ft_putstr("sb\n");
 	return (1);
 }

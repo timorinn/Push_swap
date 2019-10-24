@@ -6,7 +6,7 @@
 /*   By: bford <bford@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/24 16:17:47 by bford             #+#    #+#             */
-/*   Updated: 2019/10/24 16:59:48 by bford            ###   ########.fr       */
+/*   Updated: 2019/10/24 17:51:28 by bford            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,27 +19,27 @@
 int		ft_check_command(char *s, int *a, int *b)
 {
 	if (!ft_strcmp(s, "sa\n"))
-		ft_sa(a);
+		ft_sa(a, 0);
 	else if (!ft_strcmp(s, "sb\n"))
-		ft_sb(b);
+		ft_sb(b, 0);
 	else if (!ft_strcmp(s, "ra\n"))
-		ft_ra(a);
+		ft_ra(a, 0);
 	else if (!ft_strcmp(s, "rb\n"))
-		ft_rb(b);
+		ft_rb(b, 0);
 	else if (!ft_strcmp(s, "rra\n"))
-		ft_rra(a);
+		ft_rra(a, 0);
 	else if (!ft_strcmp(s, "rrb\n"))
-		ft_rrb(b);
+		ft_rrb(b, 0);
 	else if (!ft_strcmp(s, "ss\n"))
-		ft_ss(a, b);
+		ft_ss(a, b, 0);
 	else if (!ft_strcmp(s, "rr\n"))
-		ft_rr(a, b);
+		ft_rr(a, b, 0);
 	else if (!ft_strcmp(s, "rrr\n"))
-		ft_rrr(a, b);
+		ft_rrr(a, b, 0);
 	else if (!ft_strcmp(s, "pa\n"))
-		ft_pa(a, b);
+		ft_pa(a, b, 0);
 	else if (!ft_strcmp(s, "pb\n"))
-		ft_pb(a, b);
+		ft_pb(a, b, 0);
 	else
 		return (0);
 	return (1);
