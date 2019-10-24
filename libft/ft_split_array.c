@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_do_sort.c                                       :+:      :+:    :+:   */
+/*   ft_split_array.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bford <bford@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/13 18:46:52 by bford             #+#    #+#             */
-/*   Updated: 2019/10/24 16:14:12 by bford            ###   ########.fr       */
+/*   Created: 2019/10/24 16:23:30 by bford             #+#    #+#             */
+/*   Updated: 2019/10/24 16:23:41 by bford            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_do_sort(int *a, int *b)
+char	**ft_split_array(int argc, char **argv)
 {
-	if (a[0] < 6)
-		ft_badsort(a, b);
-	else
-		ft_normsort(a, b);
-	return (1);
+	char 	*s;
+	char 	**array;
+
+	if (!(s = ft_make_arg(argc, argv)) ||
+	!(array = ft_strsplit(s, ' ')))
+		return (NULL);
+	ft_strdel(&s);
+	return (array);
 }

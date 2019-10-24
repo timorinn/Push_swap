@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bford <bford@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/10 15:23:05 by bford             #+#    #+#             */
-/*   Updated: 2019/10/23 12:31:26 by bford            ###   ########.fr       */
+/*   Updated: 2019/10/24 16:28:15 by bford            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,13 @@
 
 #include <stdio.h> // D E L E T E 
 
-void	test(int *a, int *b);
+/*
 
-int		ft_make_array(int *a, int *b, int argc, char **argv)
+int		ft_check_borders(int *a)
 {
 	int i;
 	int j;
 
-	i = 1;
-	a[0] = argc - 1;
-	b[0] = 0;
-	while (argc-- - 1)
-	{
-		a[i] = ft_atoi(argv[i]);
-		b[i] = 666; // D E L E T!
-		i++;
-	}
 	i = 1;
 	while (i != a[0])
 	{
@@ -47,6 +38,26 @@ int		ft_make_array(int *a, int *b, int argc, char **argv)
 	return (1);
 }
 
+int		ft_make_array(int *a, int *b, int argc, char **argv)
+{
+	int i;
+	long long int num;
+
+	i = 0;
+	a[0] = argc;
+	b[0] = 0;
+	while (argc--)
+	{
+		num = ft_atoll(argv[i]);
+		if (num > 2147483647 || num < -2147483648)
+			return (0);
+		a[i + 1] = (int)num;
+		b[i + 1] = 666; // D E L E T!
+		i++;
+	}
+	return(ft_check_borders(a));
+}
+
 int		ft_check_arg(int argc, char **argv)
 {
 	int	x;
@@ -55,7 +66,6 @@ int		ft_check_arg(int argc, char **argv)
 	y = 0;
 	while (argc-- - 1)
 	{
-		y++;
 		x = 0;
 		if (argv[y][x] == '-' || argv[y][x] == '+')
 			x++;
@@ -63,24 +73,70 @@ int		ft_check_arg(int argc, char **argv)
 			x++;
 		if (argv[y][x] || x < 1 || !ft_isdigit(argv[y][x - 1]))
 			return (0);
+		y++;
 	}
 	return (1);
 }
+
+char	*ft_make_arg(int argc, char **argv)
+{
+	int		i;
+	char	*s;
+
+	i = 1;
+	s = NULL;
+	while (i < argc)
+	{
+		if (!s)
+		{
+			if (!(s = ft_strdup(argv[i])) || !(s = ft_strjoinfree(s, " ")))
+				return (NULL);
+		}
+		else if (s && (!(s = ft_strjoinfree(s, argv[i])) ||
+		!(s = ft_strjoinfree(s, " "))))
+			return (NULL);
+		i++;
+	}
+	return (s);
+}
+
+char	**ft_split_array(int argc, char **argv)
+{
+	char 	*s;
+	char 	**array;
+
+	if (!(s = ft_make_arg(argc, argv)) ||
+	!(array = ft_strsplit(s, ' ')))
+		return (NULL);
+	ft_strdel(&s);
+	return (array);
+}
+
+*/
 
 int		main(int argc, char **argv)
 {
 	int		*a;
 	int		*b;
+	char 	**array;
+	int 	i;
 
-	a = (int *)malloc(sizeof(int) * argc);
-	b = (int *)malloc(sizeof(int) * argc);
-	if (!a || !b || argc < 2 || !ft_check_arg(argc, argv) ||
-	!ft_make_array(a, b, argc, argv))
+	i = 0;
+	if (!(array = ft_split_array(argc, argv)))
+	{
+		ft_putstr("Error\n");
+		return (0);
+	}
+	while (array[i])
+		i++;
+	a = (int *)malloc(sizeof(int) * (i + 1));
+	b = (int *)malloc(sizeof(int) * (i + 1));
+	if (!a || !b || argc < 2 || !ft_check_arg(i, array) ||
+	!ft_make_array(a, b, i, array))
 		ft_putstr("Error\n");
 	else
 		ft_do_sort(a, b);
-
-	//test(a, b);
+	ft_del_array(array);
 	free (a);
 	free (b);
 	return (0);

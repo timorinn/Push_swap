@@ -6,11 +6,35 @@
 /*   By: bford <bford@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/22 17:00:23 by bford             #+#    #+#             */
-/*   Updated: 2019/10/23 12:27:35 by bford            ###   ########.fr       */
+/*   Updated: 2019/10/24 11:49:02 by bford            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+int		ft_find_middle(int *a)
+{
+	int	n;
+	int y;
+	int x;
+
+	y = 1;
+	while (y <= a[0])
+	{
+		x = 1;
+		n = a[0] / 2 + 1;
+		while (x <= a[0])
+		{
+			if (a[y] >= a[x])
+				n--;
+			x++;
+		}
+		if (n == 0)
+			return (y);
+		y++;
+	}
+	return (0);
+}
 
 int		ft_badsort(int *a, int *b)
 {

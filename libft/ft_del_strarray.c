@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_do_sort.c                                       :+:      :+:    :+:   */
+/*   ft_del_strarray.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bford <bford@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/13 18:46:52 by bford             #+#    #+#             */
-/*   Updated: 2019/10/24 16:14:12 by bford            ###   ########.fr       */
+/*   Created: 2019/10/24 13:14:50 by bford             #+#    #+#             */
+/*   Updated: 2019/10/24 13:15:17 by bford            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
 
-int		ft_do_sort(int *a, int *b)
+void		ft_del_array(char **array)
 {
-	if (a[0] < 6)
-		ft_badsort(a, b);
-	else
-		ft_normsort(a, b);
-	return (1);
+	int i;
+
+	i = 0;
+	while (array[i])
+		free(array[i++]);
+	free(array);
 }

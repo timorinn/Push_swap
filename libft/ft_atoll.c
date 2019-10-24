@@ -1,22 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_do_sort.c                                       :+:      :+:    :+:   */
+/*   ft_atoll.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bford <bford@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/13 18:46:52 by bford             #+#    #+#             */
-/*   Updated: 2019/10/24 16:14:12 by bford            ###   ########.fr       */
+/*   Created: 2019/10/24 11:51:13 by bford             #+#    #+#             */
+/*   Updated: 2019/10/24 11:51:15 by bford            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_do_sort(int *a, int *b)
+long long int	ft_atoll(const char *s)
 {
-	if (a[0] < 6)
-		ft_badsort(a, b);
-	else
-		ft_normsort(a, b);
-	return (1);
+	long long int	n;
+	int				sign;
+
+	sign = 1;
+	n = 0;
+	while ((*s >= 9 && *s <= 13) || *s == ' ')
+		s++;
+	if (*s == '+' || *s == '-')
+		sign *= (*s++ == '-' ? -1 : 1);
+	while (*s >= '0' && *s <= '9')
+		n = n * 10 + (*s++) - 48;
+	return (sign * n);
 }

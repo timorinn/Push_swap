@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_do_sort.c                                       :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bford <bford@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/13 18:46:52 by bford             #+#    #+#             */
-/*   Updated: 2019/10/24 16:14:12 by bford            ###   ########.fr       */
+/*   Created: 2019/09/03 20:37:59 by bford             #+#    #+#             */
+/*   Updated: 2019/09/07 15:46:09 by bford            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-int		ft_do_sort(int *a, int *b)
+int		ft_strcmp(const char *s1, const char *s2)
 {
-	if (a[0] < 6)
-		ft_badsort(a, b);
-	else
-		ft_normsort(a, b);
-	return (1);
+	while (*s1 == *s2 && *s1)
+	{
+		s1++;
+		s2++;
+	}
+	return (unsigned char)(*s1) - (unsigned char)(*s2);
 }

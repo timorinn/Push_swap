@@ -1,22 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_do_sort.c                                       :+:      :+:    :+:   */
+/*   ft_check_borders.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bford <bford@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/13 18:46:52 by bford             #+#    #+#             */
-/*   Updated: 2019/10/24 16:14:12 by bford            ###   ########.fr       */
+/*   Created: 2019/10/24 16:25:52 by bford             #+#    #+#             */
+/*   Updated: 2019/10/24 16:26:00 by bford            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_do_sort(int *a, int *b)
+int		ft_check_borders(int *a)
 {
-	if (a[0] < 6)
-		ft_badsort(a, b);
-	else
-		ft_normsort(a, b);
+	int i;
+	int j;
+
+	i = 1;
+	while (i != a[0])
+	{
+		j = i + 1;
+		while (j <= a[0])
+		{
+			if (a[i] == a[j])
+				return (0);
+			j++;
+		}
+		i++;
+	}
 	return (1);
 }

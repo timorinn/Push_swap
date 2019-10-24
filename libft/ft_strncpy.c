@@ -1,22 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_do_sort.c                                       :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bford <bford@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/13 18:46:52 by bford             #+#    #+#             */
-/*   Updated: 2019/10/24 16:14:12 by bford            ###   ########.fr       */
+/*   Created: 2019/09/05 21:02:43 by bford             #+#    #+#             */
+/*   Updated: 2019/09/07 15:26:57 by bford            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_do_sort(int *a, int *b)
+char	*ft_strncpy(char *s1, const char *s2, size_t n)
 {
-	if (a[0] < 6)
-		ft_badsort(a, b);
-	else
-		ft_normsort(a, b);
-	return (1);
+	char *ptr;
+
+	ptr = s1;
+	while (n && *s2)
+	{
+		*s1++ = *s2++;
+		n--;
+	}
+	while (n)
+	{
+		*s1++ = '\0';
+		n--;
+	}
+	return (ptr);
 }

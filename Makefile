@@ -6,7 +6,7 @@
 #    By: bford <bford@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/13 14:02:35 by bford             #+#    #+#              #
-#    Updated: 2019/10/14 19:17:37 by bford            ###   ########.fr        #
+#    Updated: 2019/10/24 16:53:50 by bford            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,10 +25,17 @@ $(NAME):
 	ranlib libft.a
 	gcc *.o -o push_swap
 
-exe:
+exep:
 	gcc $(FLAG) -c ./libft/*.c ./libft/*.h
-	gcc $(FLAG) -c -I ./libft main.c
-	gcc $(FALG) *.o
+	gcc $(FLAG) -c -I ./libft push_swap.c
+	gcc $(FALG) *.o -o push_swap
+	/bin/rm -f *.o
+	/bin/rm -f ./libft/*.gch
+
+exec:
+	gcc $(FLAG) -c ./libft/*.c ./libft/*.h
+	gcc $(FLAG) -c -I ./libft checker.c
+	gcc $(FALG) *.o -o checker
 	/bin/rm -f *.o
 	/bin/rm -f ./libft/*.gch
 

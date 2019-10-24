@@ -1,22 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_do_sort.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bford <bford@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/13 18:46:52 by bford             #+#    #+#             */
-/*   Updated: 2019/10/24 16:14:12 by bford            ###   ########.fr       */
+/*   Created: 2019/09/04 10:47:22 by bford             #+#    #+#             */
+/*   Updated: 2019/10/24 14:20:20 by bford            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "libft.h"
 
-int		ft_do_sort(int *a, int *b)
+char	*ft_strdup(char const *src)
 {
-	if (a[0] < 6)
-		ft_badsort(a, b);
-	else
-		ft_normsort(a, b);
-	return (1);
+	char	*s;
+	int		len;
+
+	len = ft_strlen(src);
+	if ((s = (char *)malloc(sizeof(char) * (len + 1))) == 0)
+		return (NULL);
+	while (*src)
+		*s++ = *src++;
+	*s = '\0';
+	s -= len;
+	return (s);
 }
