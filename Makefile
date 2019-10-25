@@ -6,7 +6,7 @@
 #    By: bford <bford@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/13 14:02:35 by bford             #+#    #+#              #
-#    Updated: 2019/10/25 20:57:07 by bford            ###   ########.fr        #
+#    Updated: 2019/10/25 21:56:30 by bford            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ all:	$(NAME)
 %.o:	%.c
 			gcc -I $(LIBFT) -o $@ -c $<
 
-$(NAME):	$(OBJS_P) $(OBJS_C) lib
+$(NAME):	$(OBJS_P) $(OBJS_C) | lib
 			gcc -o push_swap $(OBJS_P) -L ./libft -lft
 			gcc -o checker $(OBJS_C) -L ./libft -lft
 
