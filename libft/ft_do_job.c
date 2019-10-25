@@ -6,13 +6,13 @@
 /*   By: bford <bford@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/20 14:58:36 by bford             #+#    #+#             */
-/*   Updated: 2019/10/24 17:50:21 by bford            ###   ########.fr       */
+/*   Updated: 2019/10/25 17:21:50 by bford            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_do_job(int *a, int *b, int middle, int *all)
+void	ft_do_job(int *a, int *b, int middle, int p)
 {
 	int i;
 
@@ -20,13 +20,12 @@ void	ft_do_job(int *a, int *b, int middle, int *all)
 	while (i)
 	{
 		if (a[1] >= middle)
-			ft_ra(a, 1);
+			ft_ra(a, b, p);
 		else
 		{
 			i--;
-			ft_pb(a, b, 1);
-			(*all) += ft_little_sort(a, b);
+			ft_pb(a, b, p);
+			ft_little_sort(a, b, p);
 		}
-		(*all)++;
 	}
 }

@@ -6,13 +6,27 @@
 /*   By: bford <bford@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/13 17:35:57 by bford             #+#    #+#             */
-/*   Updated: 2019/10/24 17:46:57 by bford            ###   ########.fr       */
+/*   Updated: 2019/10/25 16:58:03 by bford            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_rrb(int *b, int p)
+static void	ft_print_rrb(int *a, int *b, int p)
+{
+	if (p == 1)
+		ft_putstr("rrb\n");
+	else if (p == 2)
+	{
+		ft_putstr("\n ______   ______   ______ \n\
+|  __  \\ |  __  \\ |  __  \\\n| |__| | | |__| | | |__| /\n\
+|    _/  |    _/  |  __  \\\n| |\\ \\   | |\\ \\   | |__| |\n\
+|_| \\_\\  |_| \\_\\  |______/\n\n");
+		ft_print_ab(a, b);
+	}
+}
+
+int			ft_rrb(int *a, int *b, int p)
 {
 	int		i;
 	int		copy;
@@ -25,7 +39,6 @@ int		ft_rrb(int *b, int p)
 		i--;
 	}
 	b[1] = copy;
-	if (p)
-		ft_putstr("rrb\n");
+	ft_print_rrb(a, b, p);
 	return (1);
 }

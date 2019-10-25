@@ -6,7 +6,7 @@
 /*   By: bford <bford@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/24 16:17:47 by bford             #+#    #+#             */
-/*   Updated: 2019/10/24 17:51:28 by bford            ###   ########.fr       */
+/*   Updated: 2019/10/25 19:35:22 by bford            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,20 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-#include <stdio.h>
-
-int		ft_check_command(char *s, int *a, int *b)
+int			ft_check_command(char *s, int *a, int *b)
 {
 	if (!ft_strcmp(s, "sa\n"))
-		ft_sa(a, 0);
+		ft_sa(a, b, 0);
 	else if (!ft_strcmp(s, "sb\n"))
-		ft_sb(b, 0);
+		ft_sb(a, b, 0);
 	else if (!ft_strcmp(s, "ra\n"))
-		ft_ra(a, 0);
+		ft_ra(a, b, 0);
 	else if (!ft_strcmp(s, "rb\n"))
-		ft_rb(b, 0);
+		ft_rb(a, b, 0);
 	else if (!ft_strcmp(s, "rra\n"))
-		ft_rra(a, 0);
+		ft_rra(a, b, 0);
 	else if (!ft_strcmp(s, "rrb\n"))
-		ft_rrb(b, 0);
+		ft_rrb(a, b, 0);
 	else if (!ft_strcmp(s, "ss\n"))
 		ft_ss(a, b, 0);
 	else if (!ft_strcmp(s, "rr\n"))
@@ -45,7 +43,26 @@ int		ft_check_command(char *s, int *a, int *b)
 	return (1);
 }
 
-int		ft_checkersort(int *a, int *b)
+static int	ft_do_readstring(int *a, int *b, char **s, char **buff)
+{
+	*(*(buff) + 1) = '\0';
+	if (!(*s))
+	{
+		if (!(*s = ft_strdup(*buff)))
+			return (0);
+	}
+	else if (!(*s = ft_strjoinfree(*s, *buff)))
+		return (0);
+	if (**buff == '\n')
+	{
+		if (!ft_check_command(*s, a, b))
+			return (0);
+		ft_strdel(s);
+	}
+	return (1);
+}
+
+int			ft_checkersort(int *a, int *b)
 {
 	char	*buff;
 	char	*s;
@@ -56,21 +73,13 @@ int		ft_checkersort(int *a, int *b)
 	s = NULL;
 	while ((t = read(0, buff, 1)))
 	{
-		buff[1] = '\0';
-		if (!s)
-		{
-			if (!(s = ft_strdup(buff)))
-				return (0);
-		}
-		else if (!(s = ft_strjoinfree(s, buff)))
+		if (!ft_do_readstring(a, b, &s, &buff))
 			return (0);
-		if (buff[0] == '\n')
-		{
-			if (!ft_check_command(s, a, b))
-				return (0);
-			free(s);
-			s = NULL;
-		}
+	}
+	if (s)
+	{
+		ft_strdel(&s);
+		return (0);
 	}
 	free(buff);
 	if (ft_is_sort(a) && !b[0])

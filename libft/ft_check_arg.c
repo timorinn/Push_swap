@@ -6,7 +6,7 @@
 /*   By: bford <bford@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/24 16:24:49 by bford             #+#    #+#             */
-/*   Updated: 2019/10/24 16:24:59 by bford            ###   ########.fr       */
+/*   Updated: 2019/10/25 18:52:35 by bford            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int		ft_check_arg(int argc, char **argv)
 	int	y;
 
 	y = 0;
-	while (argc-- - 1)
+	while (argc--)
 	{
 		x = 0;
 		if (argv[y][x] == '-' || argv[y][x] == '+')

@@ -6,7 +6,7 @@
 #    By: bford <bford@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/25 10:42:47 by bford             #+#    #+#              #
-#    Updated: 2019/10/25 10:53:15 by bford            ###   ########.fr        #
+#    Updated: 2019/10/25 18:37:43 by bford            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,7 +45,12 @@ SRCS :=		ft_atoll.c			\
 			ft_strlen.c			\
 			ft_strncpy.c		\
 			ft_strnew.c			\
-			ft_strsplit.c
+			ft_strsplit.c		\
+			ft_putnbr.c			\
+			ft_putchar.c		\
+			ft_do_start.c		\
+			ft_min.c			\
+			ft_max.c
 
 OBJS =		$(SRCS:%.c=%.o)
 

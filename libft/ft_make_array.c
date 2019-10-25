@@ -6,7 +6,7 @@
 /*   By: bford <bford@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/24 16:25:23 by bford             #+#    #+#             */
-/*   Updated: 2019/10/24 16:25:33 by bford            ###   ########.fr       */
+/*   Updated: 2019/10/25 14:41:06 by bford            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int		ft_make_array(int *a, int *b, int argc, char **argv)
 {
-	int i;
-	long long int num;
+	int				i;
+	long long int	num;
 
 	i = 0;
 	a[0] = argc;
@@ -26,8 +26,8 @@ int		ft_make_array(int *a, int *b, int argc, char **argv)
 		if (num > 2147483647 || num < -2147483648)
 			return (0);
 		a[i + 1] = (int)num;
-		b[i + 1] = 666; // D E L E T!
+		b[i + 1] = 666;
 		i++;
 	}
-	return(ft_check_borders(a));
+	return (ft_check_borders(a));
 }

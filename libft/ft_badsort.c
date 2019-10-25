@@ -6,7 +6,7 @@
 /*   By: bford <bford@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/22 17:00:23 by bford             #+#    #+#             */
-/*   Updated: 2019/10/24 17:49:33 by bford            ###   ########.fr       */
+/*   Updated: 2019/10/25 19:34:59 by bford            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,30 +36,24 @@ int		ft_find_middle(int *a)
 	return (0);
 }
 
-int		ft_badsort(int *a, int *b)
+int		ft_badsort(int *a, int *b, int p)
 {
-	int i;
 	int	m_a;
-	int m_b;
-	
-	i = 0;
+	int	m_b;
 
 	while (!ft_is_sort(a) || b[0])
 	{
 		m_a = a[ft_find_middle(a)];
 		m_b = b[ft_find_middle(b)];
-
-		if (ft_little_sort(a, b))
-			i++;
+		ft_little_sort(a, b, p);
 		if (!ft_is_sort(a) && a[0] > 3)
-			ft_do_job(a, b, m_a, &i);
+			ft_do_job(a, b, m_a, p);
 		else
 			while (b[0])
 			{
-				ft_pa(a, b, 1);
-				i += ft_little_sort(a, b);
-				i++;
+				ft_pa(a, b, p);
+				ft_little_sort(a, b, p);
 			}
 	}
-	return (i);
+	return (0);
 }

@@ -6,26 +6,34 @@
 /*   By: bford <bford@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/13 16:25:44 by bford             #+#    #+#             */
-/*   Updated: 2019/10/18 14:15:38 by bford            ###   ########.fr       */
+/*   Updated: 2019/10/25 19:34:34 by bford            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
+#include <unistd.h>
 
 void	ft_print_ab(int *a, int *b)
 {
-	int		i;
-	int		max;
+	int i;
 
-	i = 0;
-	max = (a[0] >= b[0] ? a[0] : b[0]);
-	printf("\n_________________________\n");
-	while (i <= max)
+	i = 1;
+	ft_putstr("\n_ _ ___Array A___ _ _\n");
+	while (i <= a[0])
 	{
-		printf("a[%d] = %3d   |   b[%d] = %3d\n", i, a[i], i, b[i]);
-		if (i == 0)
-			printf("\n");
+		ft_putnbr(a[i]);
+		write(1, " ", 1);
 		i++;
 	}
-	printf("_________________________\n");
+	ft_putstr("\n_ _ ___Array B___ _ _\n");
+	if (!b[0])
+		ft_putstr("NO ELEMENTS!\n");
+	i = 1;
+	while (i <= b[0])
+	{
+		ft_putnbr(b[i]);
+		write(1, " ", 1);
+		i++;
+	}
+	write(1, "\n", 1);
 }

@@ -6,7 +6,7 @@
 /*   By: bford <bford@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/24 16:24:06 by bford             #+#    #+#             */
-/*   Updated: 2019/10/24 16:24:19 by bford            ###   ########.fr       */
+/*   Updated: 2019/10/25 14:43:09 by bford            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,9 @@ char	*ft_make_arg(int argc, char **argv)
 	{
 		if (!s)
 		{
-			if (!(s = ft_strdup(argv[i])) || !(s = ft_strjoinfree(s, " ")))
+			if (!(s = ft_strdup(argv[i])))
+				return (NULL);
+			if (!(s = ft_strjoinfree(s, " ")))
 				return (NULL);
 		}
 		else if (s && (!(s = ft_strjoinfree(s, argv[i])) ||

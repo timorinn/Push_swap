@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoinfree.c                                   :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bford <bford@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/24 14:17:30 by bford             #+#    #+#             */
-/*   Updated: 2019/10/25 20:58:16 by bford            ###   ########.fr       */
+/*   Created: 2019/09/10 17:07:58 by bford             #+#    #+#             */
+/*   Updated: 2019/10/25 17:32:05 by bford            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <string.h>
 #include "libft.h"
 
-char	*ft_strjoinfree(char *s1, char const *s2)
+void	ft_putnbr(int n)
 {
-	char *fresh;
-	char *copy;
-	char *copy2;
+	long int i;
 
-	if (!s1 || !s2 || !(fresh = ft_strnew(ft_strlen(s1) + ft_strlen(s2))))
-		return (NULL);
-	copy = fresh;
-	copy2 = s1;
-	while (*s1)
-		*fresh++ = *s1++;
-	free(copy2);
-	while (*s2)
-		*fresh++ = *s2++;
-	return (copy);
+	i = (long int)n;
+	if (i < 0)
+	{
+		ft_putchar('-');
+		i *= -1;
+	}
+	if (i >= 10)
+		ft_putnbr(i / 10);
+	ft_putchar(i % 10 + '0');
 }

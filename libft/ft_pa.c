@@ -6,13 +6,26 @@
 /*   By: bford <bford@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/13 16:46:13 by bford             #+#    #+#             */
-/*   Updated: 2019/10/24 17:45:47 by bford            ###   ########.fr       */
+/*   Updated: 2019/10/25 16:54:17 by bford            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_pa(int *a, int *b, int p)
+static void		ft_print_pa(int *a, int *b, int p)
+{
+	if (p == 1)
+		ft_putstr("pa\n");
+	else if (p == 2)
+	{
+		ft_putstr("\n ______    _____ \n|  __  \\  / __  |\n\
+| |__| | | |  | |\n|  ___/  | |__| |\n| |      |  __  |\n\
+|_|      |_|  |_|\n\n");
+		ft_print_ab(a, b);
+	}
+}
+
+int				ft_pa(int *a, int *b, int p)
 {
 	int		x;
 
@@ -33,8 +46,7 @@ int		ft_pa(int *a, int *b, int p)
 		b[x] = b[x + 1];
 		x++;
 	}
-	b[b[0] + 1] = 666; // D E LE T E !
-	if (p)
-		ft_putstr("pa\n");
+	b[b[0] + 1] = 666;
+	ft_print_pa(a, b, p);
 	return (1);
 }

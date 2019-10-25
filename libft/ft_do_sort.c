@@ -6,17 +6,20 @@
 /*   By: bford <bford@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/13 18:46:52 by bford             #+#    #+#             */
-/*   Updated: 2019/10/24 16:14:12 by bford            ###   ########.fr       */
+/*   Updated: 2019/10/25 19:01:00 by bford            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_do_sort(int *a, int *b)
+int		ft_do_sort(int *a, int *b, int p)
 {
-	if (a[0] < 6)
-		ft_badsort(a, b);
+	p++;
+	if (p == 2)
+		ft_print_ab(a, b);
+	if (a[0] < 8)
+		ft_badsort(a, b, p);
 	else
-		ft_normsort(a, b);
+		ft_normsort(a, b, p);
 	return (1);
 }

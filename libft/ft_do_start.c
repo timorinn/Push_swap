@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoinfree.c                                   :+:      :+:    :+:   */
+/*   ft_do_start.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bford <bford@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/24 14:17:30 by bford             #+#    #+#             */
-/*   Updated: 2019/10/25 20:58:16 by bford            ###   ########.fr       */
+/*   Created: 2019/10/25 18:32:36 by bford             #+#    #+#             */
+/*   Updated: 2019/10/25 18:32:49 by bford            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <string.h>
 #include "libft.h"
 
-char	*ft_strjoinfree(char *s1, char const *s2)
+void	ft_do_start(int *a, int *b, int p)
 {
-	char *fresh;
-	char *copy;
-	char *copy2;
+	int		minmax[2];
 
-	if (!s1 || !s2 || !(fresh = ft_strnew(ft_strlen(s1) + ft_strlen(s2))))
-		return (NULL);
-	copy = fresh;
-	copy2 = s1;
-	while (*s1)
-		*fresh++ = *s1++;
-	free(copy2);
-	while (*s2)
-		*fresh++ = *s2++;
-	return (copy);
+	minmax[0] = ft_min(a);
+	minmax[1] = ft_max(a);
+	while (a[0] > 2)
+		if (a[1] != minmax[0] && a[1] != minmax[1])
+			ft_pb(a, b, p);
+		else
+			ft_ra(a, b, p);
+	if (a[0] > 1 && a[1] > a[2])
+		ft_sa(a, b, p);
 }
