@@ -6,46 +6,51 @@
 #    By: bford <bford@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/13 14:02:35 by bford             #+#    #+#              #
-#    Updated: 2019/10/24 16:53:50 by bford            ###   ########.fr        #
+#    Updated: 2019/10/25 12:48:11 by bford            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-FLAG = -Wall -Werror -Wextra
+SRCS_DIR := ./includes
+OBJS_DIR := ./objs
 
-LIBFT =	./libft
+SRCS_C :=		checker.c
 
-NAME =	libft.a
+SRCS_P :=		push_swap.c
 
-all:	$(NAME)
+OBJS_C := $(addprefix $(SRCS_DIR)/,$(SRCS_C:.c=.o))
 
-$(NAME):
-	gcc $(FLAGS) -c ./libft/*.c
-	gcc $(FLAGS) -c -I$(LIBFT) *.c
-	ar rcs libft.a *.o
-	ranlib libft.a
-	gcc *.o -o push_swap
+OBJS_P := $(addprefix $(SRCS_DIR)/,$(SRCS_P:.c=.o))
 
-exep:
-	gcc $(FLAG) -c ./libft/*.c ./libft/*.h
-	gcc $(FLAG) -c -I ./libft push_swap.c
-	gcc $(FALG) *.o -o push_swap
-	/bin/rm -f *.o
-	/bin/rm -f ./libft/*.gch
+FLAG := -Wall -Werror -Wextra
 
-exec:
-	gcc $(FLAG) -c ./libft/*.c ./libft/*.h
-	gcc $(FLAG) -c -I ./libft checker.c
-	gcc $(FALG) *.o -o checker
-	/bin/rm -f *.o
-	/bin/rm -f ./libft/*.gch
+LIBFT := ./libft
+
+NAME_C :=	checker
+
+NAME_P :=	push_swap
+
+.PHONY: all clean lib fclean re
+
+all:	$(NAME_C) | $(NAME_P)
+
+$(SRCS_DIR)/%.o:	$(SRCS_DIR)/%.c | lib
+					gcc -I $(LIBFT) -o $@ -c $<
+
+$(NAME_P):	$(SRCS_DIR) $(OBJS_P) | lib
+			gcc -o push_swap $(OBJS_P) -L ./libft -lft
+
+$(NAME_C):	$(SRCS_DIR) $(OBJS_C) | lib
+			gcc -o checker $(OBJS_C) -L ./libft -lft
+
+lib:
+	make -C ./libft
 
 clean:
-	/bin/rm -f *.o
+		rm -rf $(OBJS_DIR)
+		make clean -C ./libft
 
-fclean:	clean
-		/bin/rm -f $(NAME)
 
 re:		fclean all
 
 push:
-	git add -A && git commit -ma && git push
+		git add -A && git commit -ma && git push
