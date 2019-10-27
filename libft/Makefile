@@ -6,7 +6,7 @@
 #    By: bford <bford@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/25 10:42:47 by bford             #+#    #+#              #
-#    Updated: 2019/10/25 18:37:43 by bford            ###   ########.fr        #
+#    Updated: 2019/10/27 10:49:23 by bford            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,7 +50,9 @@ SRCS :=		ft_atoll.c			\
 			ft_putchar.c		\
 			ft_do_start.c		\
 			ft_min.c			\
-			ft_max.c
+			ft_max.c			\
+			ft_minswapb.c		\
+			ft_minswapa.c
 
 OBJS =		$(SRCS:%.c=%.o)
 

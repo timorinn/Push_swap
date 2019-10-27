@@ -6,7 +6,7 @@
 /*   By: bford <bford@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/10 15:28:53 by bford             #+#    #+#             */
-/*   Updated: 2019/10/25 18:36:55 by bford            ###   ########.fr       */
+/*   Updated: 2019/10/27 10:45:56 by bford            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,5 +65,7 @@ void			ft_putchar(char c);
 int				ft_min(int *a);
 int				ft_max(int *a);
 void			ft_do_start(int *a, int *b, int p);
+int				ft_minswapa(int *a, int n, int *elem_a);
+int				ft_minswapb(int size, int i);
 
 #endif

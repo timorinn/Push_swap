@@ -1,39 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_ab.c                                      :+:      :+:    :+:   */
+/*   ft_minswapb.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bford <bford@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/13 16:25:44 by bford             #+#    #+#             */
-/*   Updated: 2019/10/25 19:34:34 by bford            ###   ########.fr       */
+/*   Created: 2019/10/27 10:50:08 by bford             #+#    #+#             */
+/*   Updated: 2019/10/27 10:50:11 by bford            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <unistd.h>
-
-void	ft_print_ab(int *a, int *b)
+int		ft_minswapb(int size, int i)
 {
-	int i;
-
-	i = 1;
-	ft_putstr("\n_ _ ___Array A___ _ _\n");
-	while (i <= a[0])
-	{
-		ft_putnbr(a[i]);
-		write(1, " ", 1);
-		i++;
-	}
-	ft_putstr("\n_ _ ___Array B___ _ _\n");
-	if (!b[0])
-		ft_putstr("NO ELEMENTS!\n");
-	i = 1;
-	while (i <= b[0])
-	{
-		ft_putnbr(b[i]);
-		write(1, " ", 1);
-		i++;
-	}
-	write(1, "\n", 1);
+	return (i > size / 2 + 1 ? size - i + 1 : i - 1);
 }
