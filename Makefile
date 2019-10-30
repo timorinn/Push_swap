@@ -6,7 +6,7 @@
 #    By: bford <bford@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/13 14:02:35 by bford             #+#    #+#              #
-#    Updated: 2019/10/25 21:40:10 by bford            ###   ########.fr        #
+#    Updated: 2019/10/30 11:20:12 by bford            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,16 +27,21 @@ LIBFT := ./libft
 
 NAME :=	push_swap
 
+NAME2 := checker
+
 .PHONY: all clean lib fclean re
 
-all:	$(NAME)
+all:	lib $(NAME) $(NAME2)
 
 %.o:	%.c
 			gcc -I $(LIBFT) -o $@ -c $<
 
-$(NAME):	$(OBJS_P) $(OBJS_C) | lib
+$(NAME):	$(OBJS_P) ./libft/libft.a
 			gcc -o push_swap $(OBJS_P) -L ./libft -lft
+
+$(NAME2): $(OBJS_C) ./libft/libft.a
 			gcc -o checker $(OBJS_C) -L ./libft -lft
+
 
 lib:
 			make -C ./libft
