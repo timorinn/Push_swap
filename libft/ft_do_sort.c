@@ -6,7 +6,7 @@
 /*   By: bford <bford@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/13 18:46:52 by bford             #+#    #+#             */
-/*   Updated: 2019/10/31 14:57:53 by bford            ###   ########.fr       */
+/*   Updated: 2019/10/31 18:40:54 by bford            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int		ft_do_sort(int *a, int *b, int p)
 		ft_print_ab(a, b);
 	if (ft_is_sort(a))
 		return (1);
-	if (a[0] < 7)
+	if (a[0] < 4)
 		ft_badsort(a, b, p);
 	else
 		ft_normsort(a, b, p);
