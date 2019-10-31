@@ -1,33 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_do_job.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bford <bford@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/20 14:58:36 by bford             #+#    #+#             */
-/*   Updated: 2019/10/31 15:05:37 by bford            ###   ########.fr       */
+/*   Created: 2019/09/12 12:23:39 by bford             #+#    #+#             */
+/*   Updated: 2019/10/30 16:13:19 by bford            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
+#include <string.h>
 #include "libft.h"
 
-#include <stdio.h>
-
-void	ft_do_job(int *a, int *b, int middle, int p)
+int		ft_putstr_fd(char const *s, int fd)
 {
-	int i;
-
-	i = a[0] / 2;
-	while (i)
-	{
-		if (a[1] >= middle)
-			ft_ra(a, b, p);
-		else
-		{
-			i--;
-			ft_pb(a, b, p);
-			ft_little_sort(a, b, p);
-		}
-	}
+	write(fd, s, ft_strlen(s));
+	return (0);
 }

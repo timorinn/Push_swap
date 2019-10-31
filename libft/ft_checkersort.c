@@ -6,13 +6,28 @@
 /*   By: bford <bford@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/24 16:17:47 by bford             #+#    #+#             */
-/*   Updated: 2019/10/25 19:35:22 by bford            ###   ########.fr       */
+/*   Updated: 2019/10/31 14:01:00 by bford            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 #include <unistd.h>
+
+static int	ft_del_strbuff(char **s, char **buff)
+{
+	if (s && *s)
+	{
+		free(*s);
+		*s = NULL;
+	}
+	if (buff && *buff)
+	{
+		free(*buff);
+		*buff = NULL;
+	}
+	return (0);
+}
 
 int			ft_check_command(char *s, int *a, int *b)
 {
@@ -74,14 +89,11 @@ int			ft_checkersort(int *a, int *b)
 	while ((t = read(0, buff, 1)))
 	{
 		if (!ft_do_readstring(a, b, &s, &buff))
-			return (0);
+			return (ft_del_strbuff(&s, &buff) + 2);
 	}
 	if (s)
-	{
-		ft_strdel(&s);
-		return (0);
-	}
-	free(buff);
+		return (ft_del_strbuff(&s, &buff) + 2);
+	ft_del_strbuff(&s, &buff);
 	if (ft_is_sort(a) && !b[0])
 		return (1);
 	return (0);

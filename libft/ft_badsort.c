@@ -6,7 +6,7 @@
 /*   By: bford <bford@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/22 17:00:23 by bford             #+#    #+#             */
-/*   Updated: 2019/10/25 19:34:59 by bford            ###   ########.fr       */
+/*   Updated: 2019/10/31 16:29:40 by bford            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,11 @@ int		ft_badsort(int *a, int *b, int p)
 	int	m_a;
 	int	m_b;
 
+	if (a[0] == 4)
+	{
+		ft_pb(a, b, p);
+		ft_pb(a, b, p);
+	}
 	while (!ft_is_sort(a) || b[0])
 	{
 		m_a = a[ft_find_middle(a)];

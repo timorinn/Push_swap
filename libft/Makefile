@@ -6,7 +6,7 @@
 #    By: bford <bford@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/25 10:42:47 by bford             #+#    #+#              #
-#    Updated: 2019/10/30 11:08:45 by bford            ###   ########.fr        #
+#    Updated: 2019/10/31 14:06:47 by bford            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ SRCS :=		ft_atoll.c			\
 			ft_check_arg.c		\
 			ft_check_borders.c	\
 			ft_checkersort.c	\
-			ft_del_strarray.c	\
+			ft_del_array.c		\
 			ft_do_job.c			\
 			ft_do_sort.c		\
 			ft_is_sort.c		\
@@ -52,7 +52,9 @@ SRCS :=		ft_atoll.c			\
 			ft_min.c			\
 			ft_max.c			\
 			ft_minswapb.c		\
-			ft_minswapa.c
+			ft_minswapa.c		\
+			ft_putstr_fd.c		\
+			ft_all_del.c
 
 OBJS =		$(SRCS:%.c=%.o)
 

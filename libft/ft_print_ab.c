@@ -6,7 +6,7 @@
 /*   By: bford <bford@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/13 16:25:44 by bford             #+#    #+#             */
-/*   Updated: 2019/10/25 19:34:34 by bford            ###   ########.fr       */
+/*   Updated: 2019/10/30 14:17:06 by bford            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_print_ab(int *a, int *b)
 	int i;
 
 	i = 1;
-	ft_putstr("\n_ _ ___Array A___ _ _\n");
+	ft_putstr("_ _ ___Array A___ _ _\n");
 	while (i <= a[0])
 	{
 		ft_putnbr(a[i]);
