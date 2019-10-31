@@ -6,7 +6,7 @@
 /*   By: bford <bford@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/24 12:03:10 by bford             #+#    #+#             */
-/*   Updated: 2019/10/31 11:51:18 by bford            ###   ########.fr       */
+/*   Updated: 2019/10/31 18:19:19 by bford            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,7 @@ int		main(int argc, char **argv)
 	char	**array;
 	int		i;
 
-	i = 0;
-	if (argc == 1)
+	if (!(i = 0) && argc == 1)
 		return (0);
 	if (!(array = ft_split_array(argc, argv)))
 		return (ft_putstr("Error\n"));

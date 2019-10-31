@@ -6,7 +6,7 @@
 /*   By: bford <bford@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/13 17:04:58 by bford             #+#    #+#             */
-/*   Updated: 2019/10/31 17:13:54 by bford            ###   ########.fr       */
+/*   Updated: 2019/10/31 18:21:35 by bford            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	ft_swap_sa(int *a)
 	}
 }
 
-int	ft_sa(int *a, int *b, int p)
+int			ft_sa(int *a, int *b, int p)
 {
 	ft_swap_sa(a);
 	if (p % 10 == 1 && p / 10 && ft_is_sort(a) && !b[0])

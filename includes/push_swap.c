@@ -6,7 +6,7 @@
 /*   By: bford <bford@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/10 15:23:05 by bford             #+#    #+#             */
-/*   Updated: 2019/10/31 14:14:33 by bford            ###   ########.fr       */
+/*   Updated: 2019/10/31 18:19:35 by bford            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static int	ft_check_vc(char **array)
 
 	f = 0;
 	i = 1;
-	if (array[0][0] == '-')
+	if (*array && array[0][0] == '-')
 	{
 		while (array[0][i])
 		{
@@ -46,8 +46,7 @@ int			main(int argc, char **argv)
 	char	**array;
 	int		i;
 
-	i = 0;
-	if (argc == 1)
+	if (!(i = 0) && argc == 1)
 		return (0);
 	if (!(array = ft_split_array(argc, argv)))
 		return (ft_putstr("Error\n"));
